@@ -1,0 +1,4 @@
+R5T.D0079.A001 - Aggregation for the IVisualStudioProjectFileOperator service building on the R5T.D0078.A001 aggregation (for IVisualStudioSolutionFileOperator).
+
+Goals
+

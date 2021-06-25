@@ -1,0 +1,4 @@
+R5T.D0079.Base - Base service definitions library for the IVisualStudioProjectFileOperator service (similar to Pickwick).
+
+Goals
+
