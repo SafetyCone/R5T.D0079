@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using R5T.Dacia;
 using R5T.Lombardy;
+using R5T.Magyar;
 
 using R5T.D0077;
 using R5T.D0078.A001;
