@@ -28,5 +28,18 @@ namespace R5T.D0079
         {
             return this.DotnetOperator.AddProjectReferenceToProject(projectToModifyFilePath, projectReferenceToAddFilePath);
         }
+
+        public Task RemoveProjectReferenceIdempotent(string projectFilePathToModify, string projectReferenceFilePathToRemove)
+        {
+            return this.DotnetOperator.RemoveProjectReferenceFromProjectIdempotent(
+                projectFilePathToModify,
+                projectReferenceFilePathToRemove);
+        }
+
+        public Task<string[]> ListProjectReferenceRelativeFilePaths(string projectFilePath)
+        {
+            return this.DotnetOperator.ListProjectProjectReferenceRelativePaths(
+                projectFilePath);
+        }
     }
 }

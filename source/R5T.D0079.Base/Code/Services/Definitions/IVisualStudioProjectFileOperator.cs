@@ -8,5 +8,7 @@ namespace R5T.D0079
     {
         Task AddProjectReference(string projectToModifyFilePath, string projectReferenceToAddFilePath);
         Task Create(string projectType, string projectName, string projectDirectoryPath);
+        Task<string[]> ListProjectReferenceRelativeFilePaths(string projectFilePath);
+        Task RemoveProjectReferenceIdempotent(string projectFilePathToModify, string projectReferenceFilePathToRemove);
     }
 }
