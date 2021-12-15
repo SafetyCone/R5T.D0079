@@ -1,46 +1,48 @@
 ﻿using System;
 
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
-using R5T.Dacia;
 using R5T.Lombardy;
 using R5T.Magyar;
 
 using R5T.D0078.A001;
+using R5T.T0062;
+using R5T.T0063;
 
 using R5T.D0079.Default;
 
 
 namespace R5T.D0079.A001
 {
-    public static class IServiceCollectionExtensions
+    public static class IServiceActionExtensions
     {
-        public static ServicesAggregation01 AddVisualStudioSolutionAndProjectOperatorServices(this IServiceCollection services,
+        public static ServiceActionAggregation01 AddVisualStudioSolutionAndProjectOperatorServiceActions(this IServiceAction _,
             IServiceAction<IConfiguration> configurationAction,
             IServiceAction<IFileNameOperator> fileNameOperatorAction,
             IServiceAction<IStringlyTypedPathOperator> stringlyTypedPathOperatorAction)
         {
-            var visualStudioSolutionFileOperatorServices = services.AddVisualStudioSolutionFileOperatorServices(
+            var visualStudioSolutionFileOperatorServices = _.AddVisualStudioSolutionFileOperatorServices(
                 configurationAction,
                 fileNameOperatorAction,
                 stringlyTypedPathOperatorAction);
 
-            var visualStudioProjectFileOperatorAction = services.AddVisualStudioProjectFileOperatorAction_Old(
+            var visualStudioProjectFileOperatorAction = _.AddVisualStudioProjectFileOperatorAction(
                 visualStudioSolutionFileOperatorServices.DotnetOperatorAction);
 
-            var visualStudioProjectFileOperatorExtensionAction = services.AddVisualStudioProjectFileOperatorExtensionAction_Old(
+            var visualStudioProjectFileOperatorExtensionAction = _.AddVisualStudioProjectFileOperatorExtensionAction(
                 fileNameOperatorAction,
                 stringlyTypedPathOperatorAction,
                 visualStudioProjectFileOperatorAction);
 
-            return new ServicesAggregation01()
-                .As<ServicesAggregation01, IServicesAggregation01Increment>(increment =>
+            var output = new ServiceActionAggregation01()
+                .As<ServiceActionAggregation01, IServiceActionAggregation01Increment>(increment =>
                 {
                     increment.VisualStudioProjectFileOperatorAction = visualStudioProjectFileOperatorAction;
                     increment.VisualStudioProjectFileOperatorExtensionAction = visualStudioProjectFileOperatorExtensionAction;
                 })
                 .FillFrom(visualStudioSolutionFileOperatorServices);
+
+            return output;
         }
     }
 }
