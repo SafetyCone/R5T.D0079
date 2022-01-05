@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using R5T.D0077; /// <see cref="R5T.D0077.Documentation"/>
@@ -24,9 +25,9 @@ namespace R5T.D0079
             return this.DotnetOperator.New(projectType, projectName, projectDirectoryPath);
         }
 
-        public Task AddProjectReference(string projectToModifyFilePath, string projectReferenceToAddFilePath)
+        public Task AddProjectReferences(string projectToModifyFilePath, IEnumerable<string> projectReferenceToAddFilePaths)
         {
-            return this.DotnetOperator.AddProjectReferenceToProject(projectToModifyFilePath, projectReferenceToAddFilePath);
+            return this.DotnetOperator.AddProjectReferencesToProject(projectToModifyFilePath, projectReferenceToAddFilePaths);
         }
 
         public Task RemoveProjectReferenceIdempotent(string projectFilePathToModify, string projectReferenceFilePathToRemove)
