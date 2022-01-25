@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using R5T.Magyar;
+using R5T.D0079;
 
 using R5T.T0029.Dotnet.T001; /// <see cref="R5T.T0029.Dotnet.T001.Documentation"/>
 
 
-namespace R5T.D0079
+namespace System
 {
     public static class IVisualStudioProjectFileOperatorExtensions
     {
