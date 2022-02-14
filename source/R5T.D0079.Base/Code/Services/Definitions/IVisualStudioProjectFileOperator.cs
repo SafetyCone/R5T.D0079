@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using R5T.T0064;
+
 
 namespace R5T.D0079
 {
-    public interface IVisualStudioProjectFileOperator
+    [ServiceDefinitionMarker]
+    public interface IVisualStudioProjectFileOperator : IServiceDefinition
     {
         Task AddProjectReferences(string projectToModifyFilePath, IEnumerable<string> projectReferenceToAddFilePaths);
         Task Create(string projectType, string projectName, string projectDirectoryPath);
