@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using R5T.Magyar;
+
 using R5T.D0079;
 
 using R5T.T0029.Dotnet.T001; /// <see cref="R5T.T0029.Dotnet.T001.Documentation"/>
@@ -31,6 +33,30 @@ namespace System
         {
             // TODO, assumes that service is ok if this happens. Should test if exists, and only if not, call.
             return visualStudioProjectFileOperator.AddProjectReferences(projectToModifyFilePath, projectReferenceToAddFilePaths);
+        }
+
+        public static async Task Create(this IVisualStudioProjectFileOperator visualStudioProjectFileOperator,
+            string projectName,
+            string projectDirectoryPath,
+            VisualStudioProjectType projectType)
+        {
+            switch (projectType)
+            {
+                case VisualStudioProjectType.ClassLibrary:
+                    await visualStudioProjectFileOperator.CreateLibrary(
+                        projectName,
+                        projectDirectoryPath);
+                    break;
+
+                case VisualStudioProjectType.Console:
+                    await visualStudioProjectFileOperator.CreateConsole(
+                        projectName,
+                        projectDirectoryPath);
+                    break;
+
+                default:
+                    throw EnumerationHelper.SwitchDefaultCaseException(projectType);
+            }
         }
 
         public static Task CreateConsole(this IVisualStudioProjectFileOperator visualStudioProjectFileOperator,
