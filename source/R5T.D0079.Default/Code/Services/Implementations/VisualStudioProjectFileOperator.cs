@@ -1,15 +1,15 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using R5T.D0077; /// <see cref="R5T.D0077.Documentation"/>
 using R5T.D0077.New; /// <see cref="R5T.D0077.New.Documentation"/>
-using R5T.D0077.X001; /// <see cref="R5T.D0077.X001.Documentation"/>
+using R5T.D0077.X001;using R5T.T0064; /// <see cref="R5T.D0077.X001.Documentation"/>
 
 
 namespace R5T.D0079
-{
-    public class VisualStudioProjectFileOperator : IVisualStudioProjectFileOperator
+{[ServiceImplementationMarker]
+    public class VisualStudioProjectFileOperator : IVisualStudioProjectFileOperator,IServiceImplementation
     {
         private IDotnetOperator DotnetOperator { get; }
 

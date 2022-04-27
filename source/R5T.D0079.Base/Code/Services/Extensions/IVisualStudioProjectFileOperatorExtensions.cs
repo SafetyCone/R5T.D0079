@@ -72,5 +72,14 @@ namespace System
         {
             return visualStudioProjectFileOperator.Create(DotnetNewTemplate.Instance.ClassLib(), projectName, projectDirectoryPath);
         }
+
+        public static Task EnsureHasProjectReference(this IVisualStudioProjectFileOperator visualStudioProjectFileOperator,
+            string projectFilePath,
+            string referenceProjectFilePath)
+        {
+            return visualStudioProjectFileOperator.AddProjectReferenceOkIfAlreadyAdded(
+                projectFilePath,
+                referenceProjectFilePath);
+        }
     }
 }

@@ -1,14 +1,14 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 
 using R5T.Lombardy;
 
-using R5T.T0032;
+using R5T.T0032;using R5T.T0064;
 
 
 namespace R5T.D0079.Default
-{
-    public class VisualStudioProjectFileOperatorExtension : IVisualStudioProjectFileOperatorExtension
+{[ServiceImplementationMarker]
+    public class VisualStudioProjectFileOperatorExtension : IVisualStudioProjectFileOperatorExtension,IServiceImplementation
     {
         private IFileNameOperator FileNameOperator { get; }
         private IStringlyTypedPathOperator StringlyTypedPathOperator { get; }
