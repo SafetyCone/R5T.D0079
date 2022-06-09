@@ -12,7 +12,7 @@ namespace R5T.D0079.Default
     public static class IServiceActionExtensions
     {
         /// <summary>
-        /// Adds the <see cref="VisualStudioProjectFileOperator"/> implementation of <see cref="IVisualStudioProjectFileOperator"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="VisualStudioProjectFileOperator"/> implementation of <see cref="IVisualStudioProjectFileOperator"/> as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<IVisualStudioProjectFileOperator> AddVisualStudioProjectFileOperatorAction(this IServiceAction _,
             IServiceAction<IDotnetOperator> dotnetOperatorAction)
@@ -24,7 +24,7 @@ namespace R5T.D0079.Default
         }
 
         /// <summary>
-        /// Adds the <see cref="VisualStudioProjectFileOperatorExtension"/> implementation of <see cref="IVisualStudioProjectFileOperatorExtension"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="VisualStudioProjectFileOperatorExtension"/> implementation of <see cref="IVisualStudioProjectFileOperatorExtension"/> as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<IVisualStudioProjectFileOperatorExtension> AddVisualStudioProjectFileOperatorExtensionAction(this IServiceAction _,
             IServiceAction<IFileNameOperator> fileNameOperatorAction,

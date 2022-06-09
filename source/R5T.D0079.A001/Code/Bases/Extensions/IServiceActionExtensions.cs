@@ -3,7 +3,7 @@
 using Microsoft.Extensions.Configuration;
 
 using R5T.Lombardy;
-using R5T.Magyar;
+using R5T.Magyar.Extensions;
 
 using R5T.D0078.A001;
 using R5T.T0062;
@@ -35,7 +35,7 @@ namespace R5T.D0079.A001
                 visualStudioProjectFileOperatorAction);
 
             var output = new ServiceActionAggregation01()
-                .As<ServiceActionAggregation01, IServiceActionAggregation01Increment>(increment =>
+                .ModifyAs<ServiceActionAggregation01, IServiceActionAggregation01Increment>(increment =>
                 {
                     increment.VisualStudioProjectFileOperatorAction = visualStudioProjectFileOperatorAction;
                     increment.VisualStudioProjectFileOperatorExtensionAction = visualStudioProjectFileOperatorExtensionAction;

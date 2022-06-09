@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using R5T.Dacia;
 using R5T.Lombardy;
-using R5T.Magyar;
+using R5T.Magyar.Extensions;
 
 using R5T.D0078.A001;
 
@@ -35,7 +35,7 @@ namespace R5T.D0079.A001
                 visualStudioProjectFileOperatorAction);
 
             return new ServicesAggregation01()
-                .As<ServicesAggregation01, IServicesAggregation01Increment>(increment =>
+                .ModifyAs<ServicesAggregation01, IServicesAggregation01Increment>(increment =>
                 {
                     increment.VisualStudioProjectFileOperatorAction = visualStudioProjectFileOperatorAction;
                     increment.VisualStudioProjectFileOperatorExtensionAction = visualStudioProjectFileOperatorExtensionAction;
